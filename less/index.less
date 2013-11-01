@@ -1,0 +1,25 @@
+/*
+ * Alfredo Llanos | 2013
+ */
+
+ @import "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css";
+
+ .well {
+  img,
+  canvas {
+    display: block;
+    margin: 0 auto;
+  }
+  &.caman {
+    border: 1px solid red;
+    &:after {
+      content: 'JS processed';
+      display: block;
+      width: 100%;
+      text: center;
+      color: red;
+      font-size: 9px;
+    }
+  }
+ }
+

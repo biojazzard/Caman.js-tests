@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by biojazzard</title>
+  <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+</head>
+<body>
+  <div class="container">
+  <h1>Caman Tests</h1>
+  <h2>Canvas Only: Only JavaScript</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <pre>
+// html:
+&lt;canvas id="caman-filter"&gt;&lt;/canvas&gt;
+
+# CoffeScript
+Caman '#caman-filter', './img/01.jpg', () ->
+  @brightness 10
+  @saturation 10
+  @exposure 10
+  @sepia 10
+  @noise 10
+  @sharpen 10
+  @contrast 10
+  @vibrance 10
+  @hue 10
+  @gamma 10
+  @clip 10
+  @stackBlur 10
+  @render () ->
+    alert 'Done'          
+        </pre>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <canvas id="caman-filter"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <h2>Image Substitution. HTML + JavaScript</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <pre>
+// html:
+&lt;img
+  id="img-filter"
+  data-caman-hdpi="img/01-2@x.jpg"
+  src="img/01.jpg">
+
+# CoffeScript
+Caman imgFilter, ->
+  @brightness 5
+  @saturation 5
+  @exposure 5
+  @sepia 5
+  @noise 5
+  @sharpen 5
+  @contrast 5
+  @vibrance 5
+  @hue 5
+  @gamma 5
+  @clip 5
+  @stackBlur 5
+  @render () =>
+    $(imgFilter).parent().addClass 'caman'
+        </pre>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <img
+            id="img-filter"
+            data-caman-hdpi="img/01-2@x.jpg"
+            src="img/01.jpg">
+        </div>
+      </div>
+    </div>
+
+    <h2>Images Substitution. HTML Only, no process callback()</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <pre>
+&lt;img
+data-caman="saturation(-10) brightness(20) vignette('10%')"
+data-caman-hdpi="img/01-2@x.jpg"
+src="img/01.jpg">
+        </pre>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <img
+            data-caman="saturation(-10) brightness(20) vignette('10%')"
+            data-caman-hdpi="img/01-2@x.jpg"
+            src="img/01.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <pre>
+          <code>
+&lt;img
+  data-caman="invert()"
+  data-caman-hdpi="img/01-2@x.jpg"
+  src="img/01.jpg">
+          </code>
+        </pre>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <img
+            data-caman="invert()"
+            data-caman-hdpi="img/01-2@x.jpg"
+            src="img/01.jpg">
+        </div>
+      </div>
+    </div>
+  
+  </div><!-- container end -->
+
+  <!-- Libs -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.0.0/caman.full.min.js'></script>
+  <!-- Developing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
+  <!-- Scripts -->
+  <script type="text/coffeescript" src="coffeescript/index.coffee"></script>
+
+</body>
+
+</html>
